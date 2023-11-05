@@ -1,0 +1,68 @@
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+table {
+    margin-top: 2rem;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+thead {
+    background-color: #fff;
+}
+
+button {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+button p {
+    margin: 0;
+}
+
+tr:nth-child(even) {background: #CCC}
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin:auto auto;
+    width: fit-content;
+    gap: 10px;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+.flex {
+    display: flex;
+}
+
+.w-20{
+    width: 30%;
+}
+
+.gap03 {
+    gap: 0.3rem;
+}
+.gap2 {
+    gap: 2rem;
+}
+
+.align-items{
+    align-items: center;
+}
+
+.justify-between {
+    justify-content:space-between;
+    width: "100%";
+}
