@@ -12,6 +12,8 @@ const saveSSLResults = async(website) => {
     const certificate = await sslQuery(link).then().catch(e=>{
         console.log(e)
     })
+
+    console.log(certificate)
     
     const data = {
         website :{
