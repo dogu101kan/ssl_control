@@ -36,7 +36,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
-scheduler.scheduleJob("* * * * *", function () {
+scheduler.scheduleJob("0 */2 * * *", function () {
   getWebsitesSSL();
   sendSSLResults();
 });
