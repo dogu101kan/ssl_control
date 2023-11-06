@@ -1,5 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
 const {sslQuery} = require("./sslQuery");
+const CustomError = require("../error/CustomError");
 
 
 const prisma = new PrismaClient();
@@ -25,7 +26,7 @@ const saveSSLResults = async(website) => {
         infoAccess: certificate.infoAccess
     }
 
-    await prisma.sSLResults.create({ data }).catch(err => console.log(err))
+    await prisma.sSLResults.create({ data }).catch(err => new CustomError(err, 500))
 }
 
 module.exports = saveSSLResults;

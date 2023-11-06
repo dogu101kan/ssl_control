@@ -28,7 +28,8 @@ const sendSSLResults = async()=>{
         userId:e.user.id
       }
     });
-
+    
+    if(!mail) return false;
     publisher({
       mail:mail.mail,
       website: e.link,
