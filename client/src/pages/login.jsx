@@ -16,7 +16,7 @@ const Login = () => {
     let headers = new Headers();
 
     headers.append("Content-Type", "application/json");
-
+// berkaygkc7@gmail.com
     fetch(url, {
       method: "POST",
       headers: headers,
@@ -26,7 +26,7 @@ const Login = () => {
       .then((json) => {
         setLoading(false);
         if(json.success===true){
-          cookies.set('access_token', json.access_token);
+          cookies.set('access', json.access_token);
           navigate("/home");
           setErr(false)
         }else{

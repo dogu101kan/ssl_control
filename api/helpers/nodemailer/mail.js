@@ -3,6 +3,7 @@ const nodemailerPrep = require("./index");
 
 const sendMail = asyncErrorWrapper(async(info) => {
     info = JSON.parse(info);
+
     
     const emailTemplate = `
     SSL Certificate is Valid for ${info.website} Website Until ${info.sslResults[0].validTo}

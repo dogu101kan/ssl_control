@@ -5,7 +5,7 @@ const Notfound = () => {
   
   const cookies = new Cookies();
   return (
-    cookies.get("access_token") ? (<Navigate to="/home"/>) : (<Navigate to="/"/>)
+    cookies.get("access") ? (<Navigate to="/home"/>) : (<Navigate to="/"/>)
   )
 }
 

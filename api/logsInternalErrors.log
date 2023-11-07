@@ -1,0 +1,46 @@
+2023-11-07T11:20:52.007Z error: uncaughtException: You re not authorized. Token Expired
+Error: You re not authorized. Token Expired
+    at C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\middlewares\auth\index.js:16:29
+    at C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\jsonwebtoken\verify.js:190:16
+    at getSecret (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\jsonwebtoken\verify.js:97:14)
+    at module.exports [as verify] (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\jsonwebtoken\verify.js:101:10)
+    at C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\middlewares\auth\index.js:15:9
+    at asyncUtilWrap (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\express-async-handler\index.js:3:20)
+    at Layer.handle [as handle_request] (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\express\lib\router\layer.js:95:5)
+2023-11-07T11:21:22.488Z error: uncaughtException: 
+Invalid `prisma.sSLProviders.create()` invocation in
+C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\controllers\query.js:87:44
+
+  84 });
+  85   
+  86 if (!provider) {
+→ 87   provider = await prisma.sSLProviders.create({
+         data: {
+       +   name: String
+         }
+       })
+
+Argument `name` is missing.
+PrismaClientValidationError: 
+Invalid `prisma.sSLProviders.create()` invocation in
+C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\controllers\query.js:87:44
+
+  84 });
+  85   
+  86 if (!provider) {
+→ 87   provider = await prisma.sSLProviders.create({
+         data: {
+       +   name: String
+         }
+       })
+
+Argument `name` is missing.
+    at En (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\@prisma\client\runtime\library.js:116:5888)
+    at Cn.handleRequestError (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\@prisma\client\runtime\library.js:123:6516)
+    at Cn.handleAndLogRequestError (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\@prisma\client\runtime\library.js:123:6206)
+    at Cn.request (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\@prisma\client\runtime\library.js:123:5926)
+    at async l (C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\node_modules\@prisma\client\runtime\library.js:128:9968)
+    at async C:\Users\doguk\OneDrive\Masaüstü\ssl_control\api\controllers\query.js:87:18

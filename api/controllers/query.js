@@ -38,42 +38,75 @@ const deleteMail = asyncErrorWrapper(async (req, res) => {
 
 const addWebsite = asyncErrorWrapper(async (req, res, next) => {
   const { website } = req.body;
-  const certificate = await sslQuery(website);
-
+  const certificate = await sslQuery(website).catch(e => console.log(e))
+  let data = {}
   if(!certificate){
-    next(new CustomError("Hata! Tekrar Dene", 500))
-  }
-
-  let provider = await prisma.sSLProviders.findFirst({
-    where: {
-        name: certificate.issuer.O,
-    },
-    select:{
-      websites:true,
-      id:true
-    }
-  });
-
-  if (!provider) {
-    provider = await prisma.sSLProviders.create({
-      data: {
-        name: certificate.issuer.O,
+    let hasExpired = await prisma.sSLProviders.findFirst({
+      where: {
+          name: "Has Expired",
+      },
+      select:{
+        websites:true,
+        id:true
       }
     });
+    if (!hasExpired){
+      hasExpired = await prisma.sSLProviders.create({
+        data: {
+          name: "Has Expired",
+        }
+      });
+    }
+     data = {
+      link: website,
+      sslProvider: {
+        connect: {
+          id: hasExpired.id,
+        },
+      },
+      user: {
+        connect: {
+          id: req.user.id,
+        },
+      },
+    };
+  }else{
+  
+    let provider = await prisma.sSLProviders.findFirst({
+      where: {
+          name: certificate?.issuer?.O,
+      },
+      select:{
+        websites:true,
+        id:true
+      }
+    });
+  
+    if (!provider) {
+      provider = await prisma.sSLProviders.create({
+        data: {
+          name: certificate?.issuer?.O,
+        }
+      });
+    }
+
+    data = {
+      link: website,
+      sslProvider: {
+        connect: {
+          id: provider.id,
+        },
+      },
+      user: {
+        connect: {
+          id: req.user.id,
+        },
+      },
+    };
   }
-  const data = {
-    link: website,
-    sslProvider: {
-      connect: {
-        id: provider.id,
-      },
-    },
-    user: {
-      connect: {
-        id: req.user.id,
-      },
-    },
-  };
+
+  
+  
 
   const newWebsite = await prisma.websites.create({data});
  

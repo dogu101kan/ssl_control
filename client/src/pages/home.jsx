@@ -15,7 +15,7 @@ const Home = () => {
     setLoading(true);
     let url = "/api/query/sslresults";
     let headers = new Headers();
-    headers.append("authorization", "Bearer " + cookies.get("access_token"));
+    headers.append("authorization", "Bearer " + cookies.get("access"));
 
     fetch(url, {
       method: "GET",
@@ -42,7 +42,7 @@ const Home = () => {
     let headers = new Headers();
 
     headers.append("Content-Type", "application/json");
-    headers.append("authorization", "Bearer " + cookies.get("access_token"));
+    headers.append("authorization", "Bearer " + cookies.get("access"));
 
     fetch(url, {
       method: "POST",
@@ -66,7 +66,7 @@ const Home = () => {
     let headers = new Headers();
 
     headers.append("Content-Type", "application/json");
-    headers.append("authorization", "Bearer " + cookies.get("access_token"));
+    headers.append("authorization", "Bearer " + cookies.get("access"));
 
     fetch(url, {
       method: "POST",
@@ -88,7 +88,7 @@ const Home = () => {
     let headers = new Headers();
 
     headers.append("Content-Type", "application/json");
-    headers.append("authorization", "Bearer " + cookies.get("access_token"));
+    headers.append("authorization", "Bearer " + cookies.get("access"));
 
     fetch(url, {
       method: "DELETE",
@@ -155,7 +155,7 @@ const Home = () => {
         </div>
         <button
           onClick={() => {
-            cookies.remove("access_token");
+            cookies.remove("access");
             setData(false)
             navigate("/");
           }}

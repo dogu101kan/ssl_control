@@ -51,9 +51,6 @@ CREATE TABLE "Users" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Websites_link_key" ON "Websites"("link");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Mails_userId_key" ON "Mails"("userId");
 
 -- CreateIndex

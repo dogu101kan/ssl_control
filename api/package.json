@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "node-schedule": "^2.1.1",
     "nodemailer": "^6.9.7",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "ssl-validator": "^3.0.0"
   }
 }
